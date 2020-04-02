@@ -1,0 +1,76 @@
+<ion-header>
+  <ion-navbar color="secondary">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>เพิ่มห้องเช่า </ion-title>
+    <ion-title></ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+  <button  ion-button full padding round color="secondary" block (click)="openGallery()">เลือกรูปจากอัลบั้ม</button>
+  <img [src]="base64Image"/>
+
+  <ion-item>
+    <ion-label floating>ชื่อห้องเช่า</ion-label>
+    <ion-input type="text" required [(ngModel)]="name" ngControl="title"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label floating>ราคา THB</ion-label>
+    <ion-input type="text" required [(ngModel)]="price" ngControl="title"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>ประเภทห้องเช่า</ion-label>
+    <ion-select [(ngModel)]="category"  >
+      <ion-option value="1" >คอนโดมิเนียม</ion-option>
+      <ion-option value="2" >อพาร์ทเมนท์</ion-option>
+      <ion-option value="3" >แมนชั่น</ion-option>
+      <ion-option value="4" >หอพัก</ion-option>
+    </ion-select>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>กำจัดเพศ</ion-label>
+    <ion-select [(ngModel)]="sex"  >
+      <ion-option value="หอหญิง" >หอหญิง</ion-option>
+      <ion-option value="หอชาย" >หอชาย</ion-option>
+      <ion-option value="หอรวม" >หอรวม</ion-option>
+    </ion-select>
+  </ion-item>
+
+
+  <ion-item>
+    <ion-label floating>เบอร์ติดต่อ</ion-label>
+    <ion-input type="text" required [(ngModel)]="phone" ngControl="title"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label floating>ที่อยู่</ion-label>
+    <ion-textarea [(ngModel)]="location" ngControl="description"></ion-textarea>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>รายวัน/รายเดือน</ion-label>
+    <ion-select [(ngModel)]="day">
+      <ion-option value="รายวัน" >รายวัน</ion-option>
+      <ion-option value="รายเดือน" >รายเดือน</ion-option>
+    </ion-select>
+  </ion-item>
+
+
+  <ion-item >
+    <h2>*ระบบบันทึกตำแหน่งอัตโนมัติ ดังนั้นคุณควรอยู่ที่ห้อง*</h2>
+  </ion-item>
+
+  <ion-item >
+    <br>
+    <h2>ละติจูด : {{myLatitude}}</h2>
+    <h2>ลองติจูด : {{myLongitude}}</h2>
+    <ion-buttons end><button ion-button (click)="getCurrentLocation()"><ion-icon name="locate"></ion-icon></button></ion-buttons>
+  </ion-item>
+  <button ion-button padding round color="secondary" block  (click)= "addroom(name,price,category,sex,phone,location,day,myLatitude,myLongitude)">ส่ง</button>
+</ion-content>

@@ -1,0 +1,99 @@
+<!--
+  Generated template for the CateDetailPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar color="secondary">
+    <ion-title>ลายละเอียด ห้องเช่า</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-item >
+    <img src="{{cate.rentalroom_img}}">
+  </ion-item>
+
+
+      <ion-item >
+        <br>
+        <h2>ชื่อ : {{cate.rentalroom_name}}</h2>
+      </ion-item>
+
+      <ion-item >
+        <br>
+        <h2>ราคา : {{cate.rentalroom_price}} / {{cate.rentalroom_facilities}}</h2>
+      </ion-item>
+
+      <ion-card big>
+        <ion-card-content>
+          ที่อยู่ : {{cate.rentalroom_name_location}}
+        </ion-card-content>
+      </ion-card>
+      <!-- <ion-item >
+        <br>
+        <h2>ที่อยู่ : {{cate.rentalroom_name_location}}</h2>
+      </ion-item> -->
+
+      <ion-item >
+        <br>
+        <h2>เบอร์โทร : {{cate.rentalroom_phone}}</h2>
+      </ion-item>
+
+      <ion-item >
+        <br>
+        <h2>กำจัดเพศ : {{cate.rentalroom_limitedroom_sex}}</h2>
+      </ion-item>
+
+      <ion-item *ngFor="let catta of getcatname">
+        <h2>ประเภทห้องเช่า : {{catta.category_name}}</h2>
+      </ion-item>
+
+      <ion-col>
+        <button ion-button icon-left  full (click)="gmap1(cate)">
+          <div><ion-icon name="map"></ion-icon>แผนที่</div>
+        </button>
+      </ion-col>
+
+      <ion-col>
+        <button ion-button icon-left  full (click)="shar(cate)">
+          <div><ion-icon name="share"></ion-icon>Share</div>
+        </button>
+      </ion-col>
+
+      <ion-grid>
+        <ion-row >
+            <ion-col col-6>
+              <h5>ระดับดาว : {{score}}.0 </h5>
+              <ionic3-star-rating #rating
+                activeIcon = "ios-star"
+                defaultIcon = "ios-star-outline"
+                activeColor = "#f4e242"
+                defaultColor = "#f4f4f4"
+                readonly="false"
+                rating="{{score}}">
+              </ionic3-star-rating>
+            </ion-col>
+            <br>
+            <ion-col col-2>
+              <button  ion-button padding small round color="secondary">ให้คะแนน</button>
+            </ion-col>
+        </ion-row>
+
+    </ion-grid>
+
+    <ion-item *ngFor="let com of comement">
+      <br>
+      <h2>ความคิดเห็น :    {{com.comment_content}} </h2>
+      <h3>วันที่ : {{com.comment_date}}</h3>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>แสดงความคิดเห็น</ion-label>
+      <ion-input type="text" [(ngModel)]="comment"></ion-input>
+    </ion-item>
+    <ion-col col-2>
+      <button  ion-button padding small round color="dark" (click)="summit(comment)">Send</button>
+    </ion-col>
+</ion-content>

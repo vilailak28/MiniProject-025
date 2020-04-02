@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-navbar color="secondary">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>ห้องเช่า </ion-title>
+    <ion-title></ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content padding>
+  <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
+  <ion-item *ngFor="let type of rentalroom" (click)="gode(type)">
+    <ion-avatar item-left>
+      <img src="{{type.rentalroom_img}}">
+    </ion-avatar>
+      <h2>{{type.rentalroom_name}}</h2>
+      <h3>{{type.rentalroom_price}}</h3>
+      <h4>{{type.rentalroom_facilities}}</h4>
+  </ion-item>
+
+  <ion-fab below  right edge>
+    <button ion-fab mini (click)="cancle()"><ion-icon name="funnel"></ion-icon></button>
+    <ion-fab-list side="start">
+      <button ion-fab (click)="search()"><ion-icon name="logo-bitcoin"></ion-icon></button>
+    </ion-fab-list>
+  </ion-fab>
+
+
+</ion-content>

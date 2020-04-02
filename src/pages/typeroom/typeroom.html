@@ -1,0 +1,19 @@
+<ion-header>
+  <ion-navbar color="secondary">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>ประเภทห้องเช่า </ion-title>
+    <ion-title></ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content padding>
+  <ion-item *ngFor="let type of category" (click)="select(type)">
+    <ion-avatar item-left>
+      <img src="{{type.category_image}}">
+    </ion-avatar>
+      <h2>{{type.category_name}}</h2>
+  </ion-item>
+
+
+</ion-content>
